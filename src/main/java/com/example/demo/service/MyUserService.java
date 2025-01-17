@@ -1,3 +1,4 @@
+
 package com.example.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,19 +13,25 @@ public class MyUserService {
 	@Autowired
 	MyUserRepo myUserRepo;
 	
-	public Boolean checkUserIsValid(String uName,String password) {
+	
+	public Boolean checkUserIsValid(String uName, String password) {
 		
 		Boolean res = false;
 		
 		MyUser myUser = myUserRepo.findById(uName).orElse(new MyUser());
 		
-		if(myUser.getUserName().contentEquals(uName)) {
-			if(myUser.getUserName().contains(password)) {
-				
-				res=true;
+		if(myUser.getUserName() != null) {
+			
+			if(myUser.getUserName().contentEquals(uName)) {
+				if(myUser.getPassword().contentEquals(password)) {
+					
+					res = true;
+				}
 			}
 		}
-		return res;
 		
+		
+		return res;
 	}
+
 }

@@ -1,11 +1,12 @@
+
 package com.example.demo.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
-
 @Entity
 public class MyUser {
+	
 	@Id
 	private String userName;
 	private String password;
@@ -29,6 +30,9 @@ public class MyUser {
 	public String toString() {
 		return "MyUser [userName=" + userName + ", password=" + password + "]";
 	}
+	
+	
+	
 	
 
 }
